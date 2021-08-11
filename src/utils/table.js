@@ -14,19 +14,9 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, calories, fat) {
-  return { name, calories, fat };
-}
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0),
-  createData('Ice cream sandwich', 237, 9.0),
-  createData('Eclair', 262, 16.0),
-  createData('Cupcake', 305, 3.7),
-  createData('Gingerbread', 356, 16.0),
-];
 
-export default function BasicTable() {
+export default function BasicTable(props) {
   const classes = useStyles();
 
   return (
@@ -41,7 +31,7 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {props.rows.map((row) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
                 {row.name}
