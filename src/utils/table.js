@@ -24,7 +24,7 @@ export default function BasicTable(props) {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>File Name</TableCell>
+            <TableCell >File Name</TableCell>
             <TableCell  >Upload Date</TableCell>
             <TableCell  >Status</TableCell>
            
@@ -32,7 +32,7 @@ export default function BasicTable(props) {
         </TableHead>
         <TableBody>
           {props.rows.map((row) => (
-            <TableRow key={row.fileName}>
+            <TableRow key={row.uploadDate}>
               <TableCell component="th" scope="row">
                 {row.fileName}
               </TableCell>
