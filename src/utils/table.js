@@ -32,11 +32,11 @@ export default function BasicTable(props) {
         </TableHead>
         <TableBody>
           {props.rows.map((row) => (
-            <TableRow key={row.uploadDate}>
+            <TableRow key={row.uploadTime}>
               <TableCell component="th" scope="row">
                 {row.fileName}
               </TableCell>
-              <TableCell  >{row.uploadDate}</TableCell>
+              <TableCell  >{row.uploadTime}</TableCell>
               <TableCell  >{row.status}</TableCell>
           
             </TableRow>
