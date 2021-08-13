@@ -2,19 +2,32 @@ import "./App.css";
 import Table from "./utils/table";
 import CSVReader from "react-csv-reader";
 import { useState } from "react";
+import axios from "axios";
+
 
 function App() {
-  
-const [rows, setRows ] = useState([]);
-  function createData(name, calories, fat) {
-    return { name, calories, fat };
+  const [rows, setRows] = useState([]);
+  function createData(fileName, uploadDate, status) {
+    return { fileName, uploadDate, status };
   }
-  
- 
+
   const handleForce = (data, fileInfo) => {
-    console.log("data imported");
- 
-    setRows([...rows , createData(fileInfo.name , 'sccuess' , 0  )]) ; 
+    const obj = { uploadedFilesPk: "44", fileName: fileInfo.name ,status:"success",hospitalCode: 1 };
+    axios
+      .post("http://127.0.0.1:3002/Files", obj)
+      .then((response) => {
+        console.log("Status: ", response.status);
+        console.log("Data: ", response.data);
+      })
+      .catch((error) => {
+        console.error("Something went wrong!", error);
+      });
+  
+
+    setRows([
+      ...rows,
+      createData(fileInfo.name, new Date().toISOString(), "success"),
+    ]);
   };
 
   const papaparseOptions = {

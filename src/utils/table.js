@@ -25,19 +25,19 @@ export default function BasicTable(props) {
         <TableHead>
           <TableRow>
             <TableCell>File Name</TableCell>
-            <TableCell align="right">Upload Date</TableCell>
-            <TableCell align="right">Status</TableCell>
+            <TableCell  >Upload Date</TableCell>
+            <TableCell  >Status</TableCell>
            
           </TableRow>
         </TableHead>
         <TableBody>
           {props.rows.map((row) => (
-            <TableRow key={row.name}>
+            <TableRow key={row.fileName}>
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.fileName}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
+              <TableCell  >{row.uploadDate}</TableCell>
+              <TableCell  >{row.status}</TableCell>
           
             </TableRow>
           ))}
