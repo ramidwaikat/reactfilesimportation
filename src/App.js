@@ -6,12 +6,11 @@ import axios from "axios";
 
 function App() {
   const [rows, setRows] = useState([]);
-  // function createData(fileName, uploadDate, status) {
-  //   return { fileName, uploadDate, status };
-  // }
+
 
   // useCallback to prevent get files every  render
   const getListFiles = useCallback(async () => {
+   
     let response = await fetch("http://127.0.0.1:3002/Files");
     response = await response.json();
     setRows(response);
