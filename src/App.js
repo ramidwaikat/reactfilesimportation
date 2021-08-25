@@ -7,10 +7,8 @@ import axios from "axios";
 function App() {
   const [rows, setRows] = useState([]);
 
-
   // useCallback to prevent get files every  render
   const getListFiles = useCallback(async () => {
-   
     let response = await fetch("http://127.0.0.1:3002/Files");
     response = await response.json();
     setRows(response);
@@ -21,6 +19,8 @@ function App() {
   }, [getListFiles]);
 
   const handleForce = (data, fileInfo) => {
+     console.log(data) ; 
+
     const obj = {
       fileName: fileInfo.name,
       status: "success",
@@ -36,12 +36,12 @@ function App() {
           .then((response) => {
             // file info sent
 
-            getListFiles();
+          getListFiles();
           })
           .catch((error) => {
             console.error("Something went wrong!", error);
           });
-        getListFiles();
+      //  getListFiles();
       })
       .catch((error) => {
         console.error("Something went wrong!", error);
